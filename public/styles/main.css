@@ -1,0 +1,41 @@
+#title {
+  width: 100%;
+  height: 100px;
+  font-family: 'Sigmar One', cursive;
+  font-size: 2em;
+  text-align: center;
+  background-color: brown;
+}
+
+#gameCanvas {
+  width: 600px;
+  height: 400px;
+  border: 3px solid grey;
+  border-radius: 1%;
+  margin: auto;
+}
+
+#canvasDiv {
+  width: 600px;
+  height: 400px;
+  margin: auto;
+}
+
+#fallbackImg {
+  width: 500px;
+  height: 480px;
+}
+
+#gameStatusBar{
+  background-color: tan;
+  width: 100%;
+  height:25px;
+  margin:0;
+}
+
+#gameStatusMsg {
+  font-family: 'Merriweather Sans', sans-serif;
+  margin: 0;
+  text-align: center;
+  font-size: 1.4em;
+}

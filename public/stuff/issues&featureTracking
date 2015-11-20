@@ -1,0 +1,92 @@
+TODO
+design UI
+implement
+ -research cool css tricks
+readme File
+prep presentation
+
+sounds
+
+FEATURES NEED FOR MVP:
+-Design Layout
+-replace alerts with other user input stuff
+-watch UI component video
+
+
+OPEN ISSUES FOR MVP:
+
+
+
+
+
+OPEN ISSUES EXTRAS: LOW PRIORITY:
+bugs
+-SOMETIMES GET THIS ERROR: Uncaught TypeError: Cannot read property 'render' of undefined
+
+-fix random start and velocities.
+   sometimes velocity is 0
+
+-fix flickering of hand/mouse icon
+-change currentPlayer to thePlayers[i]???
+-test round scoring feature
+ -make more elegant
+-add transparency to hand and splats so there is no "box"
+
+FEATURES: FUTURES
+-facial recognition to make it harder for specific players i.e. instrucors named adrianna that like Ruby
+ and people I am making high stakes bet against
+
+cosmetic
+-add sound
+-intelligent roaches
+-change rotation of roach image
+-add splat/dead roach objects that clear themselves after an interval of time and show
+
+game definition
+-JASON says add new waves of roaches!!
+ you can see them welling up
+-roach bomb...you have so many roach bombs to use
+
+-add rounds to game
+-difficulty changes as game goes on
+-allow users to select number of players
+-allow users to select number of rounds
+-difficulty selection
+  num roaches and speed can change
+-high score
+-play another game
+
+
+-select different game type
+  -most total kills in num or rounds
+  -most kills in 1 round
+  -most rounds won
+
+-technical
+  -tighten up kill conditions based on programmer defined variable(s)
+
+
+
+
+//////////////////////////////////////////
+ISSUES: RESOLVED
+-mouse position doesn't map to canvas coords?
+  canvas html height & width was one thing.  css said another
+
+-'this' didn't refer to what I thought in the object methods for player
+    -tried moving outside of window.onload()
+     didn't do anything
+    -tried adding this.self = this to object.
+    worked
+    -SOLUTION: it refered to calling object which was canvas() (for mouse move, click, but not render)
+     change handling
+
+-start pos is not centered around center
+ fixed.
+
+-kills conditions not correct.  it kills more than one roach.
+   -might be that the removal from array not working.
+    because score only inc by 1 so that is good
+   -FIX: was removing more than 1 element from array
+
+FEATURES: IMPLEMENTED

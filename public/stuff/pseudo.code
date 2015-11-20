@@ -1,0 +1,122 @@
+***
+<link href='https://fonts.googleapis.com/css?family=Sigmar+One|Merriweather+Sans' rel='stylesheet' type='text/css'>
+font-family: 'Sigmar One', cursive;
+font-family: 'Merriweather Sans', sans-serif;
+
+
+*** PSEUDO CODE ***
+
+-Initialize game/players array
+  -Loop through num players times
+  -set values
+    -set currentPlayerIndex = 0;
+
+
+Kick of different tasks
+-call do player turn()
+  if currentPlayerIndex < players.length
+   -create roaches
+   -start listeners
+      -listen for mouseMove
+        -save old position
+        -get old position
+
+      -listen for click
+        -on click
+           -loop through all roaches
+             -see if there is a kill
+               -remove roach
+               -draw splat
+                 -increase kills
+                 -if no roaches left / level over
+                    <LEVEL OVER CODE!> call level over ***
+                      display number of kills for all players
+                      inc totalKills for player;
+                      call the clear stuff function()
+                        -clear render timer
+                        -stop listening to mousMove
+                        -stop listening to click
+                      call the prep stuff function()
+                        -display score of player
+                        -increase player index so next players' turn
+                        -set currentPlayer to be players[currentPlayerIndex]
+                      call the do player function to kick off again
+
+   -start rendering periodically
+      -erase the roaches
+      -erase the hand
+      -draw the stuff in order of lowest layer to highest layer
+        -loop through & draw the splats
+        -loop through roaches
+          save old position
+          move roach
+          if roach escapes
+            remove from array
+            if all roaches escaped
+              <LEVEL OVER CODE!> call level over
+                 ...see above at ****
+          else
+            draw the roach
+          -draw the hand
+  else (no players left)
+  display who won!!!
+
+
+
+
+
+
+
+=============== OLD PSEUDO CODE ===============
+
+create array of roaches based on level
+
+
+//Preload shit
+preload resourses
+  load images
+    var img = new Image();   // Create new img element
+    img.src = 'myImage.png'; // Set source path
+  load sounds??
+
+  Get context
+  set background Image
+
+
+// consructors
+roach
+player 1
+player 2
+
+// Helper Functions
+render game
+  loop through all roaches
+    save old position
+    update position
+    erase old position
+    draw roach in new position
+
+    draw arrow/pointer
+
+
+
+// init game
+start level
+    tell user level, score
+    wait for user input to start game
+    create roach array
+
+timer(rendergame) - render periodically
+
+on click
+  for each roach
+    if collision
+      play sound
+      show kill image/animation
+      increase score
+      remove roach from array
+  if no roaches
+    clear render timer to stop animation
+    display win!!
+    increase level
+    wait for user to do something to start next level (alert())
