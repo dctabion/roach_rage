@@ -378,10 +378,14 @@ $('document').ready(function(){
   /////// MAIN CONTROL CODE ///////////////////
   /////////////////////////////////////////////
   var background = new Image();
-  background.src = document.location.href + 'public/assets/woodGrain.jpg';
-  console.log(document.location.href + 'public/assets/woodGrain.jpg');
+  background.src = document.location.href + 'assets/woodGrain.jpg';
+
+  console.log(document.location.href + 'assets/woodGrain.jpg');
 
   background.onload = function() {
+    // background.width = canvasWidth;
+    // background.height = canvasHeight;
+    // ctx.drawImage(background, 0, 0, canvasWidth, canvasHeight);
     doPlayerTurn();
   };
 }); // close $('document').ready()
