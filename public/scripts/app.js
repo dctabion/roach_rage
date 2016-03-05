@@ -13,7 +13,7 @@ imgHand.src = 'assets/hand.png';
 var imgBackground = new Image();
 imgBackground.src = 'assets/splat.png';
 
-var audioKill = new Audio('assets/kill.mp3');
+var audioKill = new Audio('assets/Kill.mp3');
 
 /////////////// Global Variables /////////////
 
@@ -377,8 +377,11 @@ $('document').ready(function(){
   console.log(gameStatusMsg);
   /////// MAIN CONTROL CODE ///////////////////
   /////////////////////////////////////////////
+  var background = new Image();
+  background.src = document.location.href + 'public/assets/woodGrain.jpg';
+  console.log(document.location.href + 'public/assets/woodGrain.jpg');
 
-  doPlayerTurn();
-
-
+  background.onload = function() {
+    doPlayerTurn();
+  };
 }); // close $('document').ready()
