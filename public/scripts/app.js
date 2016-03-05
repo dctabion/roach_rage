@@ -142,8 +142,8 @@ var player = function(index) {
             (yKill < (roaches[i].yPos + imgHand.height))
                                                               ) {
           // Killed a roach! Increase score
-          this.currentKills= this.currentKills + 1;
-          // audioKill.stop();
+          this.currentKills = this.currentKills + 1;
+          audioKill.currentTime = 0;
           audioKill.play();
 
           // clear roach from canvass draw splat and remove roach from array
