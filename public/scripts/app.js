@@ -21,6 +21,7 @@ var audioKill = new Audio('assets/Kill.mp3');
 var numRoaches = 100;
 var maxRoachSpeed = 15;
 var minRoachSpeed = 1;
+var fearFactor = 0.2;
 var startRadius = 25;
 var numPlayers = 3;
 
@@ -75,31 +76,78 @@ var roach = function (xPos, yPos, xVel, yVel) {
       console.log('in range!!!');
 
       // adjust x velocity
+      // hand is to the right of roach
       if (xPosGlb > this.xPos) {
-        if (xVel < 0) {
-          this.xVel = this.xVel - 0.3;
+        // if roach moving away from hand
+        if (this.xVel < 0) {
+          this.xVel = this.xVel - fearFactor;
         }
+        // if roach is moving towards hand, flip direction
         else {
-          this.xVel = 0 - xVel;
+          // if no velocity in x dir, give it some
+          if (this.xVel == 0) {
+            this.xVel = -1;
+          }
+          // flip
+          else {
+            this.xVel = 0 - this.xVel;
+          }
         }
       }
+      // hand is to the left of roach
       else {
-        this.xVel = this.xVel + 0.3;
-        this.xVel = 0.5;
+        // roach is moving away from hand
+        if (this.xVel > 0) {
+          this.xVel = this.xVel + fearFactor;
+        }
+        // if roach moving toward hand, flip directions
+        else {
+          // roach has no xVel, give it some
+          if (this.xVel ==0) {
+            this.xVel = 1;
+          }
+          // flip direction
+          else {
+            this.xVel = 0 - this.xVel;
+          }
+        }
       }
-
       // adjust y velocity
+      // if hand is below roach
       if (yPosGlb > this.yPos) {
-        if (yVel < 0.5) {
-          this.yVel = this.yVel - 0.3;
+        // if roach moving away from hand
+        if (this.yVel < 0) {
+          this.yVel = this.yVel - fearFactor;
         }
+        // if roach moving toward hand, flip direction
         else {
-          this.yVel = 0 -yVel;
+          // if no yVel, give it some
+          if (this.yVel == 0) {
+            this.yVel = -1;
+          }
+          // flip direction
+          else {
+            this.yVel = 0 - this.yVel;
+          }
         }
       }
+      // if hand is above of roach
       else {
-        this.yVel = this.yVel + 0.3;
-        // this.yVel = 0;
+        // if roach is moving away from hand
+        if (this.yVel > 0) {
+          this.yVel = this.yVel + fearFactor;
+        }
+        // roach is moving toward hand, flip direction
+        else {
+          // no yVel, give it some
+          if (this.yVel == 0) {
+            this.yvel = -1;
+          }
+          // flip
+          else {
+            this.yVel = 0 - this.yVel;
+          }
+        }
       }
 
     }
