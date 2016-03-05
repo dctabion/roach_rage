@@ -326,10 +326,12 @@ function doPlayerTurn() {
         Math.random() * ((maxRoachSpeed+1) - minRoachSpeed) + minRoachSpeed
         - maxRoachSpeed/2
       );
+      // var xVel = 0;
       var yVel = Math.floor(
         Math.random() * ((maxRoachSpeed+1) - minRoachSpeed) + minRoachSpeed
         - maxRoachSpeed/2
       );
+      // var yVel = 0;
       roaches[i] = new roach(x, y, xVel, yVel);
     }
 
