@@ -37,6 +37,8 @@ var roaches = [];
 var thePlayers = [];
 var currentPlayerIndex = 0;
 var currentPlayer;
+var xPosGlb;
+var yPosGlb;
 
 
 //////////////// Constructors ////////////////
@@ -62,6 +64,46 @@ var roach = function (xPos, yPos, xVel, yVel) {
   this.xVel = xVel;
   this.yVel = yVel;
   this.moveIt = function() {
+    // if very close
+    if (
+          (xPosGlb > (this.xPos - imgHand.width-20)) &&
+          (xPosGlb < (this.xPos + imgRoach.width+20)) &&
+          (yPosGlb > (this.yPos - imgHand.height-20)) &&
+          (yPosGlb < (this.yPos + imgHand.height+20))
+                                                            ) {
+
+      console.log('in range!!!');
+
+      // adjust x velocity
+      if (xPosGlb > this.xPos) {
+        if (xVel < 0) {
+          this.xVel = this.xVel - 0.3;
+        }
+        else {
+          this.xVel = 0 - xVel;
+        }
+      }
+      else {
+        this.xVel = this.xVel + 0.3;
+        this.xVel = 0.5;
+      }
+
+      // adjust y velocity
+      if (yPosGlb > this.yPos) {
+        if (yVel < 0.5) {
+          this.yVel = this.yVel - 0.3;
+        }
+        else {
+          this.yVel = 0 -yVel;
+        }
+      }
+      else {
+        this.yVel = this.yVel + 0.3;
+        // this.yVel = 0;
+      }
+
+    }
+
     // save old position & update position
     this.xPosOld = this.xPos;
     this.xPos = this.xPos + this.xVel;
@@ -113,6 +155,8 @@ var player = function(index) {
     // store current position of mouse
     this.xPos = event.pageX - canvas.offsetLeft;
     this.yPos = event.pageY - canvas.offsetTop;
+    xPosGlb = this.xPos;
+    yPosGlb = this.yPos;
 
     // save old position so we can clear it before changing this.x & y
     this.xPosOld = this.xPos;
@@ -127,8 +171,8 @@ var player = function(index) {
   }
   this.killRoaches = function(event) {
     console.log('killRoaches: ' + this + this.xPos + ", " + this.yPos);
-    var xKill = event.pageX - canvas.offsetLeft;
-    var yKill = event.pageY - canvas.offsetTop;
+    xKill = event.pageX - canvas.offsetLeft;
+    yKill = event.pageY - canvas.offsetTop;
     console.log('trying to kill roaches');
     console.log(event.pageX + ", " + event.pageY + "  " +
       xKill + ', ' + yKill);
