@@ -1,7 +1,7 @@
 # roach_rage
 Serving Roach Rage (Project 1) with a Sinatra server on Heroku
 
-### Deployement
+### Deployment
 [Play Roach Rage!!!](https://roach-rage.herokuapp.com/)
 
 ### Status
